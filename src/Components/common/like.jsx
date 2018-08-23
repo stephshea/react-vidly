@@ -3,10 +3,18 @@ import React, { Component } from 'react'
 //Input: like: Boolean
 //Output: onClick
 
-class Like extends Component {
-  render() { 
-    return ( <i class="fa fa-heart-o" aria-hidden="true"></i> );
-  }
-}
+const Like = (props) => {
+  let classes = "fa fa-heart";
+  if (!props.liked) classes += "-o";
+  return (
+     <i 
+      onClick={props.onClick} 
+      //pointer makes cursor a hand
+      style={{ cursor: "pointer" }}
+      className={classes} 
+      aria-hidden="true"
+      />
+  ); 
+};
  
 export default Like;
